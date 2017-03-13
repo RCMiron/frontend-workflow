@@ -11,8 +11,11 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        exclude: /(app-styles)/,
-        loader: 'style-loader|css-loader'
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       },
       {
         test: /\.hbs$/,
