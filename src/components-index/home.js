@@ -1,4 +1,2 @@
-require('./component1/comp1.css');
-var template = require('./component1/comp1.html');
-
-  $("#component1-container").html(template)
+require('../app-styles/bootstrap/_bootstrap.scss');
+require('bootstrap-sass/assets/javascripts/bootstrap.js')

@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,7 +12,11 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader?minimize'
+      },
+      {
+        test: /\.scss$/,
+        loader: extractTextPlugin.extract('css-loader?minimize!sass-loader')
       },
       {
         test: /\.html$/,
@@ -24,6 +29,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new extractTextPlugin('styles/bootstrap.css'),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
